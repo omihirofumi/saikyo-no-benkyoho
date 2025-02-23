@@ -1,0 +1,14 @@
+services:
+  saikyo:
+    image: postgres:${POSTGRES_VERSION:-16.3}-bullseye
+    container_name: saikyo-db
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - saikyo-benkyo-db:/var/lib/postgresql/data
+volumes:
+  saikyo-benkyo-db:
